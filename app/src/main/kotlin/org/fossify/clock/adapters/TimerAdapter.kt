@@ -15,6 +15,7 @@ import org.fossify.clock.extensions.config
 import org.fossify.clock.extensions.getFormattedDuration
 import org.fossify.clock.extensions.hideTimerNotification
 import org.fossify.clock.extensions.secondsToMillis
+import org.fossify.clock.helpers.ChronovaTheme
 import org.fossify.clock.models.Timer
 import org.fossify.clock.models.TimerEvent
 import org.fossify.clock.models.TimerState.Finished
@@ -169,7 +170,10 @@ class TimerAdapter(
     private fun setupView(view: View, timer: Timer, holder: ViewHolder) {
         ItemTimerBinding.bind(view).apply {
             val isSelected = selectedKeys.contains(timer.id)
+            val state = timer.state
+            val isActive = state is Running || isSelected
             timerFrame.isSelected = isSelected
+            timerFrame.background = ChronovaTheme.cardDrawable(simpleActivity, isActive = isActive)
             timerDragHandle.beVisibleIf(selectedKeys.isNotEmpty())
             timerDragHandle.applyColorFilter(textColor)
             timerDragHandle.setOnTouchListener { _, event ->
@@ -179,32 +183,36 @@ class TimerAdapter(
                 false
             }
 
-            timerLabel.setTextColor(textColor)
-            timerLabel.setHintTextColor(textColor.adjustAlpha(0.7f))
+            timerLabel.setTextColor(if (state is Running) properPrimaryColor else textColor.adjustAlpha(0.75f))
+            timerLabel.setHintTextColor(textColor.adjustAlpha(0.6f))
             timerLabel.text = timer.label
             timerLabel.beVisibleIf(timer.label.isNotEmpty())
 
             timerTime.setTextColor(textColor)
-            timerTime.text = when (timer.state) {
+            timerTime.text = when (state) {
                 is Finished -> 0.getFormattedDuration()
                 is Idle -> timer.seconds.getFormattedDuration()
-                is Paused -> timer.state.tick.getFormattedDuration()
-                is Running -> timer.state.tick.getFormattedDuration()
+                is Paused -> state.tick.getFormattedDuration()
+                is Running -> state.tick.getFormattedDuration()
             }
 
+            timerReset.background = ChronovaTheme.secondaryCircleButtonDrawable(simpleActivity)
             timerReset.applyColorFilter(textColor)
             timerReset.setOnClickListener {
                 resetTimer(timer)
             }
 
-            timerPlayPause.applyColorFilter(textColor)
+            timerPlayPause.background = simpleActivity.resources.getColoredDrawableWithColor(
+                drawableId = R.drawable.circle_background_filled,
+                color = properPrimaryColor
+            )
             timerPlayPause.setOnClickListener {
                 toggleTimer(timer)
             }
 
-            val state = timer.state
             val resetPossible = state is Running || state is Paused || state is Finished
             timerReset.beInvisibleIf(!resetPossible)
+            val playIconColor = ChronovaTheme.contrastOnPrimary(properPrimaryColor)
             timerPlayPause.setImageDrawable(
                 simpleActivity.resources.getColoredDrawableWithColor(
                     drawableId = if (state is Running) {
@@ -212,7 +220,7 @@ class TimerAdapter(
                     } else {
                         org.fossify.commons.R.drawable.ic_play_vector
                     },
-                    color = textColor
+                    color = playIconColor
                 )
             )
         }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Chronova Midnight Indigo & Warm Amber Palette -->
+    <color name="chronova_midnight_bg">#0B1026</color>
+    <color name="chronova_surface_card">#141D3D</color>
+    <color name="chronova_surface_elevated">#1C2854</color>
+    <color name="chronova_surface_bottom_bar">#0F1633</color>
+    <color name="chronova_border_subtle">#253466</color>
+    <color name="chronova_border_amber">#66F59E0B</color>
+
+    <color name="chronova_amber">#F59E0B</color>
+    <color name="chronova_amber_light">#FBBF24</color>
+    <color name="chronova_amber_soft">#26F59E0B</color>
+    <color name="chronova_amber_deep">#D97706</color>
+
+    <color name="chronova_text_primary">#F8FAFC</color>
+    <color name="chronova_text_secondary">#94A3B8</color>
+    <color name="chronova_text_muted">#64748B</color>
+
+    <!-- Light mode adaptive fallback surfaces -->
+    <color name="chronova_light_card">#F1F5F9</color>
+    <color name="chronova_light_border">#CBD5E1</color>
+
+    <!-- Override Fossify default primary color with Chronova Warm Amber -->
+    <color name="color_primary">@color/chronova_amber</color>
+    <color name="color_primary_dark">@color/chronova_midnight_bg</color>
+    <color name="color_accent">@color/chronova_amber_light</color>
+    <color name="default_primary_color">@color/chronova_amber</color>
+    <color name="default_accent_color">@color/chronova_amber_light</color>
+    <color name="default_background_color">@color/chronova_midnight_bg</color>
+    <color name="default_text_color">@color/chronova_text_primary</color>
+</resources>

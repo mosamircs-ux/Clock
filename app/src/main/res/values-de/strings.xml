@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Uhr</string>
     <string name="time_zone">Zeitzone</string>
     <string name="vibrate">Vibration</string>
-    <string name="no_days_selected">Keine Tage ausgewählt</string>
+    <string name="no_days_selected">Keine Tage ausgewÃ¤hlt</string>
     <string name="clock">Uhr</string>
     <string name="stopwatch">Stoppuhr</string>
     <string name="start_stopwatch">Stoppuhr starten</string>
@@ -20,29 +19,29 @@
     <string name="sort_by_day_and_alarm_time">Tag und Weckzeit</string>
     <string name="analogue_clock">Analoge Uhr</string>
     <string name="digital_clock">Digitale Uhr</string>
-    <string name="alarm_dismissed">Alarm unterdrückt</string>
-    <string name="select_timer_to_dismiss">Zu unterdrückenden Timer auswählen</string>
-    <string name="select_alarm_to_dismiss">Zu unterdrückenden Alarm auswählen</string>
+    <string name="alarm_dismissed">Alarm unterdrÃ¼ckt</string>
+    <string name="select_timer_to_dismiss">Zu unterdrÃ¼ckenden Timer auswÃ¤hlen</string>
+    <string name="select_alarm_to_dismiss">Zu unterdrÃ¼ckenden Alarm auswÃ¤hlen</string>
     <string name="alarm_created">Alarm erstellt</string>
-    <string name="alarm_snoozed">Alarm zurückgestellt um %s</string>
+    <string name="alarm_snoozed">Alarm zurÃ¼ckgestellt um %s</string>
     <string name="no_alarms_found">Keine Alarme gefunden</string>
-    <string name="add_alarm">Alarm hinzufügen</string>
+    <string name="add_alarm">Alarm hinzufÃ¼gen</string>
     <string name="no_timers_found">Keine Timer gefunden</string>
-    <string name="add_timer">Timer hinzufügen</string>
+    <string name="add_timer">Timer hinzufÃ¼gen</string>
     <string name="upcoming_alarm">Bevorstehender Alarm</string>
     <string name="timers_notification_msg">Die Timer laufen</string>
-    <string name="timer_single_notification_label_msg">Timer für %s läuft</string>
+    <string name="timer_single_notification_label_msg">Timer fÃ¼r %s lÃ¤uft</string>
     <string name="new_timer">Neuer Timer</string>
     <plurals name="timer_notification_msg">
-        <item quantity="one">%d Timer wird ausgeführt</item>
-        <item quantity="other">%d Timer werden ausgeführt</item>
+        <item quantity="one">%d Timer wird ausgefÃ¼hrt</item>
+        <item quantity="other">%d Timer werden ausgefÃ¼hrt</item>
     </plurals>
     <string name="clock_tab">Uhr</string>
     <string name="alarm_tab">Wecker</string>
     <string name="stopwatch_tab">Stoppuhr</string>
     <string name="show_seconds">Sekunden anzeigen</string>
-    <string name="increase_volume_gradually">Ansteigende Lautstärke</string>
-    <string name="faq_1_title">Wie kann die Sortierung der Laschen der Stoppuhr geändert werden?</string>
+    <string name="increase_volume_gradually">Ansteigende LautstÃ¤rke</string>
+    <string name="faq_1_title">Wie kann die Sortierung der Laschen der Stoppuhr geÃ¤ndert werden?</string>
     <string name="faq_1_text">Einfach auf eine der Spalten klicken, das wird die Sortierung entsprechend der Spalte anpassen. Weitere Klicks schalten zwischen auf- und absteigender Sortierung um.</string>
     <string name="timer_tab">Timer</string>
     <string name="timer">Timer</string>

@@ -15,6 +15,7 @@ import org.fossify.clock.dialogs.EditTimerDialog
 import org.fossify.clock.extensions.config
 import org.fossify.clock.extensions.createNewTimer
 import org.fossify.clock.extensions.timerHelper
+import org.fossify.clock.helpers.AdManager
 import org.fossify.clock.helpers.DisabledItemChangeAnimator
 import org.fossify.clock.helpers.SORT_BY_TIMER_DURATION
 import org.fossify.clock.models.Timer
@@ -195,9 +196,11 @@ class TimerFragment : Fragment() {
     }
 
     private fun openEditTimer(timer: Timer) {
-        currentEditAlarmDialog = EditTimerDialog(activity as SimpleActivity, timer) {
+        val safeActivity = activity as? SimpleActivity ?: return
+        currentEditAlarmDialog = EditTimerDialog(safeActivity, timer) {
             currentEditAlarmDialog = null
             refreshTimers()
+            AdManager.recordActionAndMaybeShowInterstitial(safeActivity)
         }
     }
 }

@@ -150,4 +150,10 @@ class Config(context: Context) : BaseConfig(context) {
         set(migrateFirstDayOfWeek) = prefs.edit {
             putBoolean(MIGRATE_FIRST_DAY_OF_WEEK, migrateFirstDayOfWeek)
         }
+
+    var wasChronovaThemeInitialized: Boolean
+        get() = prefs.getBoolean(CHRONOVA_THEME_INITIALIZED, false)
+        set(initialized) = prefs.edit {
+            putBoolean(CHRONOVA_THEME_INITIALIZED, initialized)
+        }
 }

@@ -15,7 +15,7 @@ import java.util.Calendar
 import java.util.Date
 import java.util.TimeZone
 
-const val REPOSITORY_NAME = "Clock"
+const val REPOSITORY_NAME = "ChronovaClock"
 
 // shared preferences
 const val SELECTED_TIME_ZONES = "selected_time_zones"
@@ -41,6 +41,7 @@ const val WAS_INITIAL_WIDGET_SET_UP = "was_initial_widget_set_up"
 const val DATA_EXPORT_EXTENSION = ".json"
 const val LAST_DATA_EXPORT_PATH = "last_alarms_export_path"
 const val MIGRATE_FIRST_DAY_OF_WEEK = "migrate_first_day_of_week"
+const val CHRONOVA_THEME_INITIALIZED = "chronova_theme_initialized"
 
 const val TABS_COUNT = 4
 const val EDITED_TIME_ZONE_SEPARATOR = ":"
@@ -96,7 +97,7 @@ const val TOMORROW_BIT = -2
 
 // stopwatch shortcut
 const val STOPWATCH_SHORTCUT_ID = "stopwatch_shortcut_id"
-const val STOPWATCH_TOGGLE_ACTION = "org.fossify.clock.TOGGLE_STOPWATCH"
+const val STOPWATCH_TOGGLE_ACTION = "com.chronova.clock.TOGGLE_STOPWATCH"
 
 // time formatting
 const val FORMAT_12H = "h:mm a"

@@ -13,12 +13,14 @@ import org.fossify.clock.databinding.ItemAlarmBinding
 import org.fossify.clock.extensions.config
 import org.fossify.clock.extensions.dbHelper
 import org.fossify.clock.extensions.getFormattedTime
+import org.fossify.clock.helpers.ChronovaTheme
 import org.fossify.clock.helpers.updateNonRecurringAlarmDay
 import org.fossify.clock.interfaces.ToggleAlarmInterface
 import org.fossify.clock.models.Alarm
 import org.fossify.clock.models.AlarmEvent
 import org.fossify.commons.adapters.MyRecyclerViewAdapter
 import org.fossify.commons.dialogs.ConfirmationDialog
+import org.fossify.commons.extensions.adjustAlpha
 import org.fossify.commons.extensions.applyColorFilter
 import org.fossify.commons.extensions.beVisibleIf
 import org.fossify.commons.extensions.getSelectedDaysString
@@ -136,6 +138,7 @@ class AlarmsAdapter(
         val isSelected = selectedKeys.contains(alarm.id)
         ItemAlarmBinding.bind(view).apply {
             alarmHolder.isSelected = isSelected
+            alarmHolder.background = ChronovaTheme.cardDrawable(activity, isActive = alarm.isEnabled || isSelected)
             alarmDragHandle.beVisibleIf(selectedKeys.isNotEmpty())
             alarmDragHandle.applyColorFilter(textColor)
             alarmDragHandle.setOnTouchListener { _, event ->
@@ -144,18 +147,19 @@ class AlarmsAdapter(
                 }
                 false
             }
+            val activeTextColor = if (alarm.isEnabled) textColor else textColor.adjustAlpha(0.5f)
             alarmTime.text = activity.getFormattedTime(
                 passedSeconds = alarm.timeInMinutes * 60,
                 showSeconds = false,
                 makeAmPmSmaller = true
             )
-            alarmTime.setTextColor(textColor)
+            alarmTime.setTextColor(activeTextColor)
 
             alarmDays.text = getAlarmSelectedDaysString(alarm)
-            alarmDays.setTextColor(textColor)
+            alarmDays.setTextColor(if (alarm.isEnabled) properPrimaryColor else textColor.adjustAlpha(0.5f))
 
             alarmLabel.text = alarm.label
-            alarmLabel.setTextColor(textColor)
+            alarmLabel.setTextColor(textColor.adjustAlpha(if (alarm.isEnabled) 0.78f else 0.45f))
             alarmLabel.beVisibleIf(alarm.label.isNotEmpty())
 
             alarmSwitch.isChecked = alarm.isEnabled

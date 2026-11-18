@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Klokke</string>
     <string name="time_zone">Tidssone</string>
     <string name="vibrate">Vibrer</string>
     <string name="no_days_selected">Ingen dager valgte</string>
@@ -9,17 +8,17 @@
     <string name="lap">Runde</string>
     <string name="stopwatch_stopped">Stoppeklokke er stoppet</string>
     <string name="timer_stopped">Timer er stoppet</string>
-    <string name="max_reminder_duration">Maksimum påminnelsesvarighet</string>
-    <string name="time_expired">Tid utløpt</string>
+    <string name="max_reminder_duration">Maksimum pÃ¥minnelsesvarighet</string>
+    <string name="time_expired">Tid utlÃ¸pt</string>
     <string name="clock_and_date">Klokke og dato</string>
     <string name="use_text_shadow">Bruk tekstskygge</string>
-    <string name="swipe_right_to_dismiss">Sveip til høyre for å slå av eller til venstre for Snooze (Slumre).</string>
-    <string name="sort_by_creation_order">Opprettelsesrekkefølge</string>
+    <string name="swipe_right_to_dismiss">Sveip til hÃ¸yre for Ã¥ slÃ¥ av eller til venstre for Snooze (Slumre).</string>
+    <string name="sort_by_creation_order">OpprettelsesrekkefÃ¸lge</string>
     <string name="sort_by_alarm_time">Alarmtid</string>
     <string name="sort_by_day_and_alarm_time">Dag og alarmtid</string>
     <string name="analogue_clock">Analog klokke</string>
     <string name="digital_clock">Digital klokke</string>
-    <string name="alarm_dismissed">Alarm slått av</string>
+    <string name="alarm_dismissed">Alarm slÃ¥tt av</string>
     <string name="alarm_snoozed">Alarm - Slumre %s</string>
     <string name="no_alarms_found">Ingen alarmer funnet</string>
     <string name="no_timers_found">Ingen timere funnet</string>
@@ -35,7 +34,7 @@
     <string name="alarm_tab">Alarmfane</string>
     <string name="stopwatch_tab">Stoppeklokkefane</string>
     <string name="show_seconds">Vis sekunder</string>
-    <string name="increase_volume_gradually">Øk volum gradvis</string>
+    <string name="increase_volume_gradually">Ã˜k volum gradvis</string>
     <string name="clock">Klokke</string>
     <string name="alarm_created">Alarm opprettet</string>
     <string name="add_alarm">Legg til alarm</string>

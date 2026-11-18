@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Orologio</string>
     <string name="time_zone">Fuso orario</string>
     <string name="vibrate">Vibrazione</string>
     <string name="no_days_selected">Nessun giorno selezionato</string>
@@ -9,8 +8,8 @@
     <string name="stopwatch">Cronometro</string>
     <string name="start_stopwatch">Avvia il cronometro</string>
     <string name="lap">Parziale</string>
-    <string name="stopwatch_stopped">Il cronometro è stato fermato</string>
-    <string name="timer_stopped">Il timer è stato fermato</string>
+    <string name="stopwatch_stopped">Il cronometro Ã¨ stato fermato</string>
+    <string name="timer_stopped">Il timer Ã¨ stato fermato</string>
     <string name="max_reminder_duration">Durata della suoneria</string>
     <string name="time_expired">Tempo scaduto</string>
     <string name="clock_and_date">Ora e data</string>
@@ -32,10 +31,10 @@
     <string name="add_timer">Aggiungi timer</string>
     <string name="upcoming_alarm">Prossima sveglia</string>
     <string name="timers_notification_msg">I timer sono in funzione</string>
-    <string name="timer_single_notification_label_msg">Il timer per %s è in funzione</string>
+    <string name="timer_single_notification_label_msg">Il timer per %s Ã¨ in funzione</string>
     <string name="new_timer">Nuovo timer</string>
     <plurals name="timer_notification_msg">
-        <item quantity="one">%d timer è in funzione</item>
+        <item quantity="one">%d timer Ã¨ in funzione</item>
         <item quantity="many">%d timer sono in funzione</item>
         <item quantity="other">%d timer sono in funzione</item>
     </plurals>
@@ -46,7 +45,7 @@
     <string name="show_seconds">Mostra secondi</string>
     <string name="increase_volume_gradually">Incrementa il volume gradualmente</string>
     <string name="faq_1_title">Come posso cambiare l\'ordinamento dei giri nel cronometro?</string>
-    <string name="faq_1_text">Premendo una volta su qualsiasi colonna, i giri verranno ordinati per tale colonna. Premendo nuovamente si potrà cambiare il tipo di ordinamento, ascendente o discendente.</string>
+    <string name="faq_1_text">Premendo una volta su qualsiasi colonna, i giri verranno ordinati per tale colonna. Premendo nuovamente si potrÃ  cambiare il tipo di ordinamento, ascendente o discendente.</string>
     <string name="settings_import_data">Importa sveglie e timer</string>
     <string name="settings_export_data">Esporta sveglie e timer</string>
     <string name="sort_by_timer_duration">Durata del timer</string>

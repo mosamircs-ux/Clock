@@ -10,8 +10,10 @@ import org.fossify.clock.databinding.ItemTimeZoneBinding
 import org.fossify.clock.extensions.config
 import org.fossify.clock.extensions.getFormattedDate
 import org.fossify.clock.extensions.getFormattedTime
+import org.fossify.clock.helpers.ChronovaTheme
 import org.fossify.clock.models.MyTimeZone
 import org.fossify.commons.adapters.MyRecyclerViewAdapter
+import org.fossify.commons.extensions.adjustAlpha
 import org.fossify.commons.extensions.beGone
 import org.fossify.commons.extensions.beVisible
 import org.fossify.commons.views.MyRecyclerView
@@ -114,16 +116,17 @@ class TimeZonesAdapter(activity: SimpleActivity, var timeZones: ArrayList<MyTime
         val isSelected = selectedKeys.contains(timeZone.id)
         ItemTimeZoneBinding.bind(view).apply {
             timeZoneFrame.isSelected = isSelected
+            timeZoneFrame.background = ChronovaTheme.cardDrawable(activity, isActive = isSelected)
             timeZoneTitle.text = timeZone.title
             timeZoneTitle.setTextColor(textColor)
 
             timeZoneTime.text = formattedTime
-            timeZoneTime.setTextColor(textColor)
+            timeZoneTime.setTextColor(properPrimaryColor)
 
             if (formattedDate != todayDateString) {
                 timeZoneDate.beVisible()
                 timeZoneDate.text = formattedDate
-                timeZoneDate.setTextColor(textColor)
+                timeZoneDate.setTextColor(textColor.adjustAlpha(0.68f))
             } else {
                 timeZoneDate.beGone()
             }

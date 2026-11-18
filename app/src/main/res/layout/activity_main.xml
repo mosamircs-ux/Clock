@@ -16,6 +16,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/color_primary"
             app:menu="@menu/menu"
+            app:title="@string/app_name"
             app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
 
     </org.fossify.commons.views.MyAppBarLayout>
@@ -30,13 +31,31 @@
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/main_tabs_holder" />
+            android:layout_above="@+id/ad_banner_container" />
+
+        <FrameLayout
+            android:id="@+id/ad_banner_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/main_tabs_divider"
+            android:gravity="center"
+            android:paddingVertical="4dp"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/main_tabs_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/main_tabs_holder"
+            android:background="@color/chronova_border_subtle" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/main_tabs_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
             app:tabIndicator="@null"
             app:tabMinWidth="150dp"
             app:tabRippleColor="@null" />

@@ -8,6 +8,7 @@ import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.core.graphics.drawable.toDrawable
+import com.google.android.gms.ads.AdView
 import me.grantland.widget.AutofitHelper
 import org.fossify.clock.BuildConfig
 import org.fossify.clock.R
@@ -18,6 +19,8 @@ import org.fossify.clock.extensions.config
 import org.fossify.clock.extensions.getEnabledAlarms
 import org.fossify.clock.extensions.handleFullScreenNotificationsPermission
 import org.fossify.clock.extensions.updateWidgets
+import org.fossify.clock.helpers.AdManager
+import org.fossify.clock.helpers.ChronovaTheme
 import org.fossify.clock.helpers.INVALID_TIMER_ID
 import org.fossify.clock.helpers.OPEN_TAB
 import org.fossify.clock.helpers.PICK_AUDIO_FILE_INTENT_ID
@@ -35,26 +38,23 @@ import org.fossify.clock.helpers.TAB_TIMER_INDEX
 import org.fossify.clock.helpers.TIMER_ID
 import org.fossify.clock.helpers.TOGGLE_STOPWATCH
 import org.fossify.commons.databinding.BottomTablayoutItemBinding
-import org.fossify.commons.extensions.appLaunched
 import org.fossify.commons.extensions.applyColorFilter
+import org.fossify.commons.extensions.baseConfig
 import org.fossify.commons.extensions.convertToBitmap
-import org.fossify.commons.extensions.getBottomNavigationBackgroundColor
+import org.fossify.commons.extensions.getAlertDialogBuilder
+import org.fossify.commons.extensions.getInternalStoragePath
 import org.fossify.commons.extensions.getProperBackgroundColor
 import org.fossify.commons.extensions.getProperPrimaryColor
 import org.fossify.commons.extensions.getProperTextColor
-import org.fossify.commons.extensions.launchMoreAppsFromUsIntent
 import org.fossify.commons.extensions.onPageChangeListener
 import org.fossify.commons.extensions.onTabSelectionChanged
 import org.fossify.commons.extensions.shortcutManager
 import org.fossify.commons.extensions.storeNewYourAlarmSound
 import org.fossify.commons.extensions.toast
 import org.fossify.commons.extensions.updateBottomTabItemColors
+import org.fossify.commons.extensions.updateSDCardPath
 import org.fossify.commons.extensions.viewBinding
-import org.fossify.commons.helpers.LICENSE_AUTOFITTEXTVIEW
-import org.fossify.commons.helpers.LICENSE_NUMBER_PICKER
-import org.fossify.commons.helpers.LICENSE_RTL
 import org.fossify.commons.helpers.ensureBackgroundThread
-import org.fossify.commons.models.FAQItem
 import java.time.temporal.WeekFields
 import java.util.Locale
 
@@ -62,12 +62,14 @@ class MainActivity : SimpleActivity() {
     private var storedTextColor = 0
     private var storedBackgroundColor = 0
     private var storedPrimaryColor = 0
+    private var bannerAdView: AdView? = null
+    private var launchedSettings = false
     private val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        appLaunched(BuildConfig.APPLICATION_ID)
+        initializeChronovaLaunch()
         setupOptionsMenu()
         refreshMenuItems()
 
@@ -76,6 +78,7 @@ class MainActivity : SimpleActivity() {
         storeStateVariables()
         initFragments()
         setupTabs()
+        setupBannerAd()
         updateWidgets()
         migrateFirstDayOfWeek()
         ensureBackgroundThread {
@@ -121,6 +124,35 @@ class MainActivity : SimpleActivity() {
 
         setupTabColors()
         checkShortcuts()
+        bannerAdView?.resume()
+        if (launchedSettings) {
+            launchedSettings = false
+            AdManager.recordActionAndMaybeShowInterstitial(this)
+        }
+    }
+
+    override fun onDestroy() {
+        bannerAdView?.destroy()
+        bannerAdView = null
+        super.onDestroy()
+    }
+
+    private fun initializeChronovaLaunch() {
+        baseConfig.internalStoragePath = getInternalStoragePath()
+        updateSDCardPath()
+        baseConfig.appId = BuildConfig.APPLICATION_ID
+        if (baseConfig.appRunCount == 0) {
+            baseConfig.wasOrangeIconChecked = true
+        }
+        baseConfig.appRunCount++
+    }
+
+    private fun setupBannerAd() {
+        binding.adBannerContainer.post {
+            if (!isFinishing && !isDestroyed && bannerAdView == null) {
+                bannerAdView = AdManager.loadAdaptiveBanner(this, binding.adBannerContainer)
+            }
+        }
     }
 
     @SuppressLint("NewApi")
@@ -161,6 +193,7 @@ class MainActivity : SimpleActivity() {
     }
 
     override fun onPause() {
+        bannerAdView?.pause()
         super.onPause()
         storeStateVariables()
         if (config.preventPhoneFromSleeping) {
@@ -177,7 +210,6 @@ class MainActivity : SimpleActivity() {
                     TAB_TIMER_INDEX -> getViewPagerAdapter()?.showTimerSortDialog()
                 }
 
-                R.id.more_apps_from_us -> launchMoreAppsFromUsIntent()
                 R.id.settings -> launchSettings()
                 R.id.about -> launchAbout()
                 else -> return@setOnMenuItemClickListener false
@@ -188,10 +220,8 @@ class MainActivity : SimpleActivity() {
 
     private fun refreshMenuItems() {
         binding.mainToolbar.menu.apply {
-            findItem(R.id.sort).isVisible = binding.viewPager.currentItem == getTabIndex(TAB_ALARM)
+            findItem(R.id.sort)?.isVisible = binding.viewPager.currentItem == getTabIndex(TAB_ALARM)
                     || binding.viewPager.currentItem == getTabIndex(TAB_TIMER)
-            findItem(R.id.more_apps_from_us).isVisible =
-                resources.getBoolean(org.fossify.commons.R.bool.is_google_play_build)
         }
     }
 
@@ -326,8 +356,9 @@ class MainActivity : SimpleActivity() {
         }
 
         binding.mainTabsHolder.getTabAt(binding.viewPager.currentItem)?.select()
-        val bottomBarColor = getBottomNavigationBackgroundColor()
+        val bottomBarColor = ChronovaTheme.bottomBarBackgroundColor(this)
         binding.mainTabsHolder.setBackgroundColor(bottomBarColor)
+        binding.adBannerContainer.setBackgroundColor(bottomBarColor)
     }
 
     private fun getInactiveTabIndexes(activeIndex: Int): List<Int> {
@@ -349,54 +380,18 @@ class MainActivity : SimpleActivity() {
     )
 
     private fun launchSettings() {
+        launchedSettings = true
         startActivity(Intent(applicationContext, SettingsActivity::class.java))
     }
 
     private fun launchAbout() {
-        val licenses =
-            LICENSE_NUMBER_PICKER or LICENSE_RTL or LICENSE_AUTOFITTEXTVIEW
-
-        val faqItems = arrayListOf(
-            FAQItem(
-                title = R.string.faq_1_title,
-                text = R.string.faq_1_text
-            ),
-            FAQItem(
-                title = org.fossify.commons.R.string.faq_1_title_commons,
-                text = org.fossify.commons.R.string.faq_1_text_commons
-            ),
-            FAQItem(
-                title = org.fossify.commons.R.string.faq_4_title_commons,
-                text = org.fossify.commons.R.string.faq_4_text_commons
-            ),
-            FAQItem(
-                title = org.fossify.commons.R.string.faq_9_title_commons,
-                text = org.fossify.commons.R.string.faq_9_text_commons
-            )
-        )
-
-        if (resources.getBoolean(org.fossify.commons.R.bool.is_google_play_build)) {
-            faqItems.add(
-                FAQItem(
-                    title = org.fossify.commons.R.string.faq_2_title_commons,
-                    text = org.fossify.commons.R.string.faq_2_text_commons
-                )
-            )
-            faqItems.add(
-                FAQItem(
-                    title = org.fossify.commons.R.string.faq_6_title_commons,
-                    text = org.fossify.commons.R.string.faq_6_text_commons
-                )
-            )
-        }
-
-        startAboutActivity(
-            appNameId = R.string.app_name,
-            licenseMask = licenses,
-            versionName = BuildConfig.VERSION_NAME,
-            faqItems = faqItems,
-            showFAQBeforeMail = true
-        )
+        val message = "${getString(R.string.app_name)} v${BuildConfig.VERSION_NAME}\n\n" +
+            getString(R.string.chronova_about_description)
+        getAlertDialogBuilder()
+            .setTitle(R.string.app_name)
+            .setMessage(message)
+            .setPositiveButton(org.fossify.commons.R.string.ok, null)
+            .show()
     }
 
     @Deprecated("Remove this method in future releases")

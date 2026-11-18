@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">ساعت زنگی</string>
-    <string name="time_zone">منطقه‌ی زمانی</string>
-    <string name="vibrate">لرزیدن</string>
-    <string name="no_days_selected">روزی انتخاب نشد</string>
-    <string name="clock">ساعت</string>
-    <string name="timer">زمان‌سنج</string>
-    <string name="stopwatch">کرنومتر</string>
-    <string name="start_stopwatch">شروع کردن کرنومتر</string>
-    <string name="show_seconds">نشان دادن ثانیه</string>
-    <string name="increase_volume_gradually">به تدریج افزودن صدا</string>
+    <string name="time_zone">Ù…Ù†Ø·Ù‚Ù‡â€ŒÛŒ Ø²Ù…Ø§Ù†ÛŒ</string>
+    <string name="vibrate">Ù„Ø±Ø²ÛŒØ¯Ù†</string>
+    <string name="no_days_selected">Ø±ÙˆØ²ÛŒ Ø§Ù†ØªØ®Ø§Ø¨ Ù†Ø´Ø¯</string>
+    <string name="clock">Ø³Ø§Ø¹Øª</string>
+    <string name="timer">Ø²Ù…Ø§Ù†â€ŒØ³Ù†Ø¬</string>
+    <string name="stopwatch">Ú©Ø±Ù†ÙˆÙ…ØªØ±</string>
+    <string name="start_stopwatch">Ø´Ø±ÙˆØ¹ Ú©Ø±Ø¯Ù† Ú©Ø±Ù†ÙˆÙ…ØªØ±</string>
+    <string name="show_seconds">Ù†Ø´Ø§Ù† Ø¯Ø§Ø¯Ù† Ø«Ø§Ù†ÛŒÙ‡</string>
+    <string name="increase_volume_gradually">Ø¨Ù‡ ØªØ¯Ø±ÛŒØ¬ Ø§ÙØ²ÙˆØ¯Ù† ØµØ¯Ø§</string>
 </resources>

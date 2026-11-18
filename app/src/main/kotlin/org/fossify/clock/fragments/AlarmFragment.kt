@@ -19,6 +19,7 @@ import org.fossify.clock.extensions.dbHelper
 import org.fossify.clock.extensions.firstDayOrder
 import org.fossify.clock.extensions.handleFullScreenNotificationsPermission
 import org.fossify.clock.extensions.updateWidgets
+import org.fossify.clock.helpers.AdManager
 import org.fossify.clock.helpers.DEFAULT_ALARM_MINUTES
 import org.fossify.clock.helpers.SORT_BY_ALARM_TIME
 import org.fossify.clock.helpers.SORT_BY_DATE_AND_TIME
@@ -166,11 +167,13 @@ class AlarmFragment : Fragment(), ToggleAlarmInterface {
     }
 
     private fun openEditAlarm(alarm: Alarm) {
-        currentEditAlarmDialog = EditAlarmDialog(activity as SimpleActivity, alarm) {
+        val safeActivity = activity as? SimpleActivity ?: return
+        currentEditAlarmDialog = EditAlarmDialog(safeActivity, alarm) {
             alarm.id = it
             currentEditAlarmDialog = null
             setupAlarms()
             checkAlarmState(alarm)
+            AdManager.recordActionAndMaybeShowInterstitial(safeActivity)
         }
     }
 

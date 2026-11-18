@@ -17,12 +17,16 @@ import org.fossify.clock.extensions.config
 import org.fossify.clock.extensions.getAllTimeZonesModified
 import org.fossify.clock.extensions.getClosestEnabledAlarmString
 import org.fossify.clock.extensions.getFormattedDate
+import org.fossify.clock.helpers.AdManager
+import org.fossify.clock.helpers.ChronovaTheme
 import org.fossify.clock.helpers.FORMAT_12H_WITH_SECONDS
 import org.fossify.clock.helpers.FORMAT_24H_WITH_SECONDS
 import org.fossify.clock.helpers.getPassedSeconds
 import org.fossify.clock.models.MyTimeZone
+import org.fossify.commons.extensions.adjustAlpha
 import org.fossify.commons.extensions.beVisibleIf
 import org.fossify.commons.extensions.getProperBackgroundColor
+import org.fossify.commons.extensions.getProperPrimaryColor
 import org.fossify.commons.extensions.getProperTextColor
 import org.fossify.commons.extensions.updateTextColors
 import java.util.Calendar
@@ -50,7 +54,9 @@ class ClockFragment : Fragment() {
         setupDateTime()
 
         val safeContext = context ?: return
-        binding.clockDate.setTextColor(safeContext.getProperTextColor())
+        binding.clockHeroCard.background = ChronovaTheme.heroClockDrawable(safeContext)
+        binding.clockDate.setTextColor(safeContext.getProperTextColor().adjustAlpha(0.72f))
+        binding.clockAlarm.background = ChronovaTheme.pillDrawable(safeContext)
     }
 
     override fun onPause() {
@@ -115,10 +121,13 @@ class ClockFragment : Fragment() {
     fun updateAlarm() {
         val safeContext = context ?: return
         safeContext.getClosestEnabledAlarmString { nextAlarm ->
+            val primaryColor = safeContext.getProperPrimaryColor()
             binding.apply {
                 clockAlarm.beVisibleIf(nextAlarm.isNotEmpty())
                 clockAlarm.text = nextAlarm
-                clockAlarm.colorCompoundDrawable(safeContext.getProperTextColor())
+                clockAlarm.setTextColor(primaryColor)
+                clockAlarm.background = ChronovaTheme.pillDrawable(safeContext)
+                clockAlarm.colorCompoundDrawable(primaryColor)
             }
         }
     }
@@ -157,6 +166,7 @@ class ClockFragment : Fragment() {
         val safeContext = activity as? SimpleActivity ?: return
         AddTimeZonesDialog(safeContext) {
             updateTimeZones()
+            AdManager.recordActionAndMaybeShowInterstitial(safeContext)
         }
     }
 }

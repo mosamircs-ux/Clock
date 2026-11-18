@@ -25,7 +25,7 @@ fun hasSigningVars(): Boolean {
 
 base {
     val versionCode = project.property("VERSION_CODE").toString().toInt()
-    archivesName = "clock-$versionCode"
+    archivesName = "chronova-clock-$versionCode"
 }
 
 android {
@@ -70,6 +70,9 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
+            manifestPlaceholders["admobAppId"] = "ca-app-pub-3940256099942544~3347511713"
+            buildConfigField("String", "ADMOB_BANNER_ID", "\"ca-app-pub-3940256099942544/9214589741\"")
+            buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"ca-app-pub-3940256099942544/1033173712\"")
         }
         release {
             isMinifyEnabled = true
@@ -77,6 +80,12 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            val releaseAppId = project.property("ADMOB_RELEASE_APP_ID").toString()
+            val releaseBannerId = project.property("ADMOB_RELEASE_BANNER_ID").toString()
+            val releaseInterstitialId = project.property("ADMOB_RELEASE_INTERSTITIAL_ID").toString()
+            manifestPlaceholders["admobAppId"] = releaseAppId
+            buildConfigField("String", "ADMOB_BANNER_ID", "\"$releaseBannerId\"")
+            buildConfigField("String", "ADMOB_INTERSTITIAL_ID", "\"$releaseInterstitialId\"")
             if (keystorePropertiesFile.exists() || hasSigningVars()) {
                 signingConfig = signingConfigs.getByName("release")
             }
@@ -115,7 +124,7 @@ android {
         )
     }
 
-    namespace = project.property("APP_ID").toString()
+    namespace = "org.fossify.clock"
 
     lint {
         checkReleaseBuilds = false
@@ -141,6 +150,7 @@ detekt {
 
 dependencies {
     implementation(libs.fossify.commons)
+    implementation(libs.google.play.services.ads)
 
     implementation(libs.bundles.lifecycle)
     implementation(libs.androidx.constraintlayout)

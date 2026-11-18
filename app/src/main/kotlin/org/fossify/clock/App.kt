@@ -12,6 +12,8 @@ import org.fossify.clock.extensions.getOpenTimerTabIntent
 import org.fossify.clock.extensions.getTimerNotification
 import org.fossify.clock.extensions.hideNotification
 import org.fossify.clock.extensions.timerHelper
+import org.fossify.clock.helpers.AdManager
+import org.fossify.clock.helpers.ChronovaTheme
 import org.fossify.clock.helpers.Stopwatch
 import org.fossify.clock.helpers.Stopwatch.State
 import org.fossify.clock.models.TimerEvent
@@ -33,6 +35,8 @@ class App : FossifyApp(), LifecycleObserver {
 
     override fun onCreate() {
         super.onCreate()
+        ChronovaTheme.applyDefaultsIfNeeded(this)
+        AdManager.initialize(this)
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
         EventBus.getDefault().register(this)
     }

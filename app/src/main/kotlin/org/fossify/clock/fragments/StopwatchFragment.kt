@@ -1,7 +1,6 @@
 package org.fossify.clock.fragments
 
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.graphics.Matrix
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,6 +17,7 @@ import org.fossify.clock.adapters.StopwatchAdapter
 import org.fossify.clock.databinding.FragmentStopwatchBinding
 import org.fossify.clock.extensions.config
 import org.fossify.clock.extensions.formatStopwatchTime
+import org.fossify.clock.helpers.ChronovaTheme
 import org.fossify.clock.helpers.SORT_BY_LAP
 import org.fossify.clock.helpers.SORT_BY_LAP_TIME
 import org.fossify.clock.helpers.SORT_BY_TOTAL_TIME
@@ -125,22 +125,26 @@ class StopwatchFragment : Fragment() {
     }
 
     private fun setupViews() {
-        val properPrimaryColor = requireContext().getProperPrimaryColor()
-        val properTextColor = requireContext().getProperTextColor()
+        val safeContext = requireContext()
+        val properPrimaryColor = safeContext.getProperPrimaryColor()
+        val properTextColor = safeContext.getProperTextColor()
         binding.apply {
-            requireContext().updateTextColors(stopwatchFragment)
+            safeContext.updateTextColors(stopwatchFragment)
+            stopwatchDialCard?.background = ChronovaTheme.heroClockDrawable(safeContext)
             stopwatchTime.setTextColor(properTextColor)
             stopwatchPlayPause.background = resources.getColoredDrawableWithColor(
                 drawableId = R.drawable.circle_background_filled,
                 color = properPrimaryColor
             )
+            stopwatchReset.background = ChronovaTheme.secondaryCircleButtonDrawable(safeContext)
+            stopwatchLap.background = ChronovaTheme.secondaryCircleButtonDrawable(safeContext)
             stopwatchReset.applyColorFilter(properTextColor)
-            stopwatchLap.applyColorFilter(properTextColor)
+            stopwatchLap.applyColorFilter(properPrimaryColor)
         }
 
         stopwatchAdapter?.apply {
             updatePrimaryColor()
-            updateBackgroundColor(requireContext().getProperBackgroundColor())
+            updateBackgroundColor(safeContext.getProperBackgroundColor())
             updateTextColor(properTextColor)
         }
     }
@@ -153,12 +157,7 @@ class StopwatchFragment : Fragment() {
                 org.fossify.commons.R.drawable.ic_play_vector
             }
 
-        val iconColor =
-            if (requireContext().getProperPrimaryColor() == Color.WHITE) {
-                Color.BLACK
-            } else {
-                Color.WHITE
-            }
+        val iconColor = ChronovaTheme.contrastOnPrimary(requireContext().getProperPrimaryColor())
 
         binding.stopwatchPlayPause.setImageDrawable(
             resources.getColoredDrawableWithColor(
@@ -277,8 +276,6 @@ class StopwatchFragment : Fragment() {
             binding.stopwatchTime.text = totalTime.formatStopwatchTime(useLongerMSFormat)
             latestLapTime = lapTime
             latestTotalTime = totalTime
-            // We just update the list everytime for simplicity.
-            // dafa9e0ad88fdf77c19b91caec0683a3a87b8f50 would be more efficient.
             updateLaps()
         }
 

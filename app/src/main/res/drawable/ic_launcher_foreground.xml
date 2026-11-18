@@ -1,3 +1,99 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="512" android:viewportHeight="512">
-    <path android:fillColor="#ffffff" android:pathData="M267 251.6V212q0-4.68-3.16-7.84Q260.67 201 256 201q-4.68 0-7.84 3.16T245 212v43.72q0 2.2 0.82 4.26 0.82 2.06 2.47 3.71l36.3 36.3q3.03 3.03 7.7 3.03 4.68 0 7.7-3.03 3.03-3.03 3.03-7.7 0-4.68-3.03-7.7zM256 366q-22.83 0-42.9-8.66-20.08-8.67-34.92-23.51-14.86-14.85-23.52-34.93Q146 278.83 146 256t8.66-42.9q8.66-20.08 23.51-34.92 14.85-14.85 34.92-23.51Q233.18 146 256 146q22.83 0 42.9 8.66 20.08 8.66 34.92 23.51 14.85 14.85 23.51 34.92Q366 233.18 366 256q0 22.83-8.66 42.9-8.66 20.08-23.51 34.92-14.85 14.85-34.92 23.51Q278.83 366 256 366zm0-110zm0 88q36.58 0 62.29-25.71T344 256q0-36.57-25.71-62.29Q292.58 168 256 168q-36.57 0-62.29 25.71Q168 219.43 168 256q0 36.58 25.71 62.29Q219.43 344 256 344z" android:strokeWidth="0.275"/>
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Subtle inner dial face disc -->
+    <path
+        android:fillAlpha="0.88"
+        android:fillColor="#111A3D"
+        android:pathData="M54,28 A26,26 0 1,1 53.99,28 Z" />
+
+    <!-- Chronova Signature Open Orbital Ring (bold amber gold gradient) -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M71.5,33.5 A26.5,26.5 0 1,1 54,27.5"
+        android:strokeWidth="4.2"
+        android:strokeLineCap="round">
+        <aapt:attr name="android:strokeColor">
+            <gradient
+                android:endX="78"
+                android:endY="78"
+                android:startX="30"
+                android:startY="28"
+                android:type="linear">
+                <item
+                    android:color="#FDE68A"
+                    android:offset="0.0" />
+                <item
+                    android:color="#F59E0B"
+                    android:offset="0.55" />
+                <item
+                    android:color="#D97706"
+                    android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Secondary luminous accent dot at the orbital gap (1:30 position) -->
+    <path
+        android:fillColor="#FDE68A"
+        android:pathData="M65.8,29.6 m-2.3,0 a2.3,2.3 0 1,1 4.6,0 a2.3,2.3 0 1,1 -4.6,0" />
+
+    <!-- Cardinal Hour Markers (12, 3, 6, 9) -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,33 L54,36.8"
+        android:strokeWidth="2.2"
+        android:strokeColor="#FBBF24"
+        android:strokeLineCap="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M75,54 L71.2,54"
+        android:strokeWidth="2.2"
+        android:strokeAlpha="0.8"
+        android:strokeColor="#CBD5E1"
+        android:strokeLineCap="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,75 L54,71.2"
+        android:strokeWidth="2.2"
+        android:strokeAlpha="0.8"
+        android:strokeColor="#CBD5E1"
+        android:strokeLineCap="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M33,54 L36.8,54"
+        android:strokeWidth="2.2"
+        android:strokeAlpha="0.8"
+        android:strokeColor="#CBD5E1"
+        android:strokeLineCap="round" />
+
+    <!-- Hour Hand (pointing to 10 o'clock) -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,54 L43.5,46.2"
+        android:strokeWidth="3.6"
+        android:strokeColor="#F8FAFC"
+        android:strokeLineCap="round" />
+
+    <!-- Minute Hand (pointing to 2 o'clock) -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,54 L66.5,43.2"
+        android:strokeWidth="3.0"
+        android:strokeColor="#FBBF24"
+        android:strokeLineCap="round" />
+
+    <!-- Luminous Center Pivot -->
+    <path
+        android:fillColor="#F59E0B"
+        android:pathData="M54,54 m-3.6,0 a3.6,3.6 0 1,1 7.2,0 a3.6,3.6 0 1,1 -7.2,0" />
+    <path
+        android:fillColor="#FEF3C7"
+        android:pathData="M54,54 m-1.4,0 a1.4,1.4 0 1,1 2.8,0 a1.4,1.4 0 1,1 -2.8,0" />
+
 </vector>

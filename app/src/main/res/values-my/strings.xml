@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">နာရီ</string>
-    <string name="time_zone">အချိန် ဇုန်</string>
-    <string name="vibrate">တုန်ခါမှု</string>
-    <string name="no_days_selected">ရက်မ​ရွေးထားပါ</string>
-    <string name="clock">နာရီ</string>
-    <string name="timer">အချိန်
-မှတ်စက်</string>
-    <string name="stopwatch">စံချိန်ယူနာရီ</string>
-    <string name="start_stopwatch">စံချိန်ယူနာရီကို စမှတ်ပါ</string>
-    <string name="lap">ပြန်​ကျော့</string>
-    <string name="stopwatch_stopped">စံ
-ချိန်ယူနာရီအားရပ်ပြီး</string>
-    <string name="timer_stopped">အချိန်မှတ်စက်ရပ်ပြီး</string>
-    <string name="max_reminder_duration">သတိ​ပေးချက်ကြာချိန်</string>
-    <string name="time_expired">အချိန်ပြည့်ပြီ</string>
-    <string name="clock_and_date">နာရီနှင့်​နေ့ရက်</string>
-    <string name="use_text_shadow">စာအရိပ်သုံးမည်</string>
-    <string name="swipe_right_to_dismiss">ဖယ်ရှားရန်ညာဘက်ကိုဆွဲပါ သို့မဟုတ်​ နောက်မှသတိ​ပေးရန်ဘယ်ဘက်ကိုဆွဲပါ</string>
-    <string name="sort_by_creation_order">ဖန်တီး​သောရက်ဖြင့်</string>
-    <string name="sort_by_alarm_time">နှိုးစက်​ပေးထား​သောအချိန်ဖြင့်</string>
-    <string name="sort_by_day_and_alarm_time">နေ့ရက် နှင့် နှိုးစက်အချိန်ဖြင့်</string>
-    <string name="analogue_clock">တိုင်ကပ်နာရီ</string>
-    <string name="digital_clock">ဒီဂျစ်တယ်နာရီ</string>
-    <string name="alarm_dismissed">နှိုးစက်အားဖယ်ရှားပြီး</string>
-    <string name="alarm_snoozed">နှိုးစက်အားရပ်တန့်ပြီး %s</string>
-    <string name="no_alarms_found">နှိုးစက်မရှိပါ</string>
-    <string name="add_alarm">နှိုးစက်ထည့်မည်</string>
-    <string name="no_timers_found">အချိန်မှတ်စက်မရှိပါ</string>
-    <string name="add_timer">အချိန်မှတ်စက်ထည့်မည်</string>
-    <string name="upcoming_alarm">လာ​တော့မည့်နှိုးစက်</string>
-    <string name="timers_notification_msg">အချိန်မှတ်စက်များသွား​နေသည်</string>
-    <string name="timer_single_notification_label_msg"> %s အတွက်အချိန်မှတ်စက် သည်သွား​နေသည်</string>
-    <string name="new_timer">အချိန်မှတ်စက်အသစ်</string>
+    <string name="time_zone">á€¡á€á€»á€­á€”á€º á€‡á€¯á€”á€º</string>
+    <string name="vibrate">á€á€¯á€”á€ºá€á€«á€™á€¾á€¯</string>
+    <string name="no_days_selected">á€›á€€á€ºá€™â€‹á€›á€½á€±á€¸á€‘á€¬á€¸á€•á€«</string>
+    <string name="clock">á€”á€¬á€›á€®</string>
+    <string name="timer">á€¡á€á€»á€­á€”á€º
+á€™á€¾á€á€ºá€…á€€á€º</string>
+    <string name="stopwatch">á€…á€¶á€á€»á€­á€”á€ºá€šá€°á€”á€¬á€›á€®</string>
+    <string name="start_stopwatch">á€…á€¶á€á€»á€­á€”á€ºá€šá€°á€”á€¬á€›á€®á€€á€­á€¯ á€…á€™á€¾á€á€ºá€•á€«</string>
+    <string name="lap">á€•á€¼á€”á€ºâ€‹á€€á€»á€±á€¬á€·</string>
+    <string name="stopwatch_stopped">á€…á€¶
+á€á€»á€­á€”á€ºá€šá€°á€”á€¬á€›á€®á€¡á€¬á€¸á€›á€•á€ºá€•á€¼á€®á€¸</string>
+    <string name="timer_stopped">á€¡á€á€»á€­á€”á€ºá€™á€¾á€á€ºá€…á€€á€ºá€›á€•á€ºá€•á€¼á€®á€¸</string>
+    <string name="max_reminder_duration">á€žá€á€­â€‹á€•á€±á€¸á€á€»á€€á€ºá€€á€¼á€¬á€á€»á€­á€”á€º</string>
+    <string name="time_expired">á€¡á€á€»á€­á€”á€ºá€•á€¼á€Šá€ºá€·á€•á€¼á€®</string>
+    <string name="clock_and_date">á€”á€¬á€›á€®á€”á€¾á€„á€ºá€·â€‹á€”á€±á€·á€›á€€á€º</string>
+    <string name="use_text_shadow">á€…á€¬á€¡á€›á€­á€•á€ºá€žá€¯á€¶á€¸á€™á€Šá€º</string>
+    <string name="swipe_right_to_dismiss">á€–á€šá€ºá€›á€¾á€¬á€¸á€›á€”á€ºá€Šá€¬á€˜á€€á€ºá€€á€­á€¯á€†á€½á€²á€•á€« á€žá€­á€¯á€·á€™á€Ÿá€¯á€á€ºâ€‹ á€”á€±á€¬á€€á€ºá€™á€¾á€žá€á€­â€‹á€•á€±á€¸á€›á€”á€ºá€˜á€šá€ºá€˜á€€á€ºá€€á€­á€¯á€†á€½á€²á€•á€«</string>
+    <string name="sort_by_creation_order">á€–á€”á€ºá€á€®á€¸â€‹á€žá€±á€¬á€›á€€á€ºá€–á€¼á€„á€ºá€·</string>
+    <string name="sort_by_alarm_time">á€”á€¾á€­á€¯á€¸á€…á€€á€ºâ€‹á€•á€±á€¸á€‘á€¬á€¸â€‹á€žá€±á€¬á€¡á€á€»á€­á€”á€ºá€–á€¼á€„á€ºá€·</string>
+    <string name="sort_by_day_and_alarm_time">á€”á€±á€·á€›á€€á€º á€”á€¾á€„á€ºá€· á€”á€¾á€­á€¯á€¸á€…á€€á€ºá€¡á€á€»á€­á€”á€ºá€–á€¼á€„á€ºá€·</string>
+    <string name="analogue_clock">á€á€­á€¯á€„á€ºá€€á€•á€ºá€”á€¬á€›á€®</string>
+    <string name="digital_clock">á€’á€®á€‚á€»á€…á€ºá€á€šá€ºá€”á€¬á€›á€®</string>
+    <string name="alarm_dismissed">á€”á€¾á€­á€¯á€¸á€…á€€á€ºá€¡á€¬á€¸á€–á€šá€ºá€›á€¾á€¬á€¸á€•á€¼á€®á€¸</string>
+    <string name="alarm_snoozed">á€”á€¾á€­á€¯á€¸á€…á€€á€ºá€¡á€¬á€¸á€›á€•á€ºá€á€”á€ºá€·á€•á€¼á€®á€¸ %s</string>
+    <string name="no_alarms_found">á€”á€¾á€­á€¯á€¸á€…á€€á€ºá€™á€›á€¾á€­á€•á€«</string>
+    <string name="add_alarm">á€”á€¾á€­á€¯á€¸á€…á€€á€ºá€‘á€Šá€ºá€·á€™á€Šá€º</string>
+    <string name="no_timers_found">á€¡á€á€»á€­á€”á€ºá€™á€¾á€á€ºá€…á€€á€ºá€™á€›á€¾á€­á€•á€«</string>
+    <string name="add_timer">á€¡á€á€»á€­á€”á€ºá€™á€¾á€á€ºá€…á€€á€ºá€‘á€Šá€ºá€·á€™á€Šá€º</string>
+    <string name="upcoming_alarm">á€œá€¬â€‹á€á€±á€¬á€·á€™á€Šá€ºá€·á€”á€¾á€­á€¯á€¸á€…á€€á€º</string>
+    <string name="timers_notification_msg">á€¡á€á€»á€­á€”á€ºá€™á€¾á€á€ºá€…á€€á€ºá€™á€»á€¬á€¸á€žá€½á€¬á€¸â€‹á€”á€±á€žá€Šá€º</string>
+    <string name="timer_single_notification_label_msg"> %s á€¡á€á€½á€€á€ºá€¡á€á€»á€­á€”á€ºá€™á€¾á€á€ºá€…á€€á€º á€žá€Šá€ºá€žá€½á€¬á€¸â€‹á€”á€±á€žá€Šá€º</string>
+    <string name="new_timer">á€¡á€á€»á€­á€”á€ºá€™á€¾á€á€ºá€…á€€á€ºá€¡á€žá€…á€º</string>
     <plurals name="timer_notification_msg">
-        <item quantity="one">%d အချိန်မှတ်စက်သွား​နေသည်</item>
-        <item quantity="other">%d အချိန်မှတ်စက်များသွား​နေသည်</item>
+        <item quantity="one">%d á€¡á€á€»á€­á€”á€ºá€™á€¾á€á€ºá€…á€€á€ºá€žá€½á€¬á€¸â€‹á€”á€±á€žá€Šá€º</item>
+        <item quantity="other">%d á€¡á€á€»á€­á€”á€ºá€™á€¾á€á€ºá€…á€€á€ºá€™á€»á€¬á€¸á€žá€½á€¬á€¸â€‹á€”á€±á€žá€Šá€º</item>
     </plurals>
-    <string name="clock_tab">နာရီ</string>
-    <string name="alarm_tab">နှိုးစက်</string>
-    <string name="stopwatch_tab">စံချိန်ယူ</string>
-    <string name="timer_tab">အချိန်မှတ်စက်</string>
-    <string name="show_seconds">စက္ကန့်များကိုပြ</string>
-    <string name="increase_volume_gradually">မြည်သံအားတစ်ဆင့်ချင်းမြှင့်ပါ</string>
-    <string name="faq_1_title">ငါဘယ်လိုစံချိန်ယူနာရီမှာပြန်​ကျော့ထားတယ့်စာရင်းအစီအစဥ်ကိုချိန်းနိုင်မလဲ?</string>
-    <string name="faq_1_text">ကော်လံတစ်ခု​ပေါ်မှာနှိပ်ပါ သင်နှိပ်လိုက်သည့်​ကော်လံကိုတစ်ခါထပ်နှိပ်ခြင်းဖြင့် ကြီးစဥ်ငယ်လိုက် နဲ့ငယ်စဥ်ကြီးလိုက်စီနိုင်ပါတယ်။</string>
+    <string name="clock_tab">á€”á€¬á€›á€®</string>
+    <string name="alarm_tab">á€”á€¾á€­á€¯á€¸á€…á€€á€º</string>
+    <string name="stopwatch_tab">á€…á€¶á€á€»á€­á€”á€ºá€šá€°</string>
+    <string name="timer_tab">á€¡á€á€»á€­á€”á€ºá€™á€¾á€á€ºá€…á€€á€º</string>
+    <string name="show_seconds">á€…á€€á€¹á€€á€”á€ºá€·á€™á€»á€¬á€¸á€€á€­á€¯á€•á€¼</string>
+    <string name="increase_volume_gradually">á€™á€¼á€Šá€ºá€žá€¶á€¡á€¬á€¸á€á€…á€ºá€†á€„á€ºá€·á€á€»á€„á€ºá€¸á€™á€¼á€¾á€„á€ºá€·á€•á€«</string>
+    <string name="faq_1_title">á€„á€«á€˜á€šá€ºá€œá€­á€¯á€…á€¶á€á€»á€­á€”á€ºá€šá€°á€”á€¬á€›á€®á€™á€¾á€¬á€•á€¼á€”á€ºâ€‹á€€á€»á€±á€¬á€·á€‘á€¬á€¸á€á€šá€ºá€·á€…á€¬á€›á€„á€ºá€¸á€¡á€…á€®á€¡á€…á€¥á€ºá€€á€­á€¯á€á€»á€­á€”á€ºá€¸á€”á€­á€¯á€„á€ºá€™á€œá€²?</string>
+    <string name="faq_1_text">á€€á€±á€¬á€ºá€œá€¶á€á€…á€ºá€á€¯â€‹á€•á€±á€«á€ºá€™á€¾á€¬á€”á€¾á€­á€•á€ºá€•á€« á€žá€„á€ºá€”á€¾á€­á€•á€ºá€œá€­á€¯á€€á€ºá€žá€Šá€ºá€·â€‹á€€á€±á€¬á€ºá€œá€¶á€€á€­á€¯á€á€…á€ºá€á€«á€‘á€•á€ºá€”á€¾á€­á€•á€ºá€á€¼á€„á€ºá€¸á€–á€¼á€„á€ºá€· á€€á€¼á€®á€¸á€…á€¥á€ºá€„á€šá€ºá€œá€­á€¯á€€á€º á€”á€²á€·á€„á€šá€ºá€…á€¥á€ºá€€á€¼á€®á€¸á€œá€­á€¯á€€á€ºá€…á€®á€”á€­á€¯á€„á€ºá€•á€«á€á€šá€ºá‹</string>
 </resources>

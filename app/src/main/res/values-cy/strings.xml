@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Cloc</string>
     <string name="time_zone">Cylchfa amser</string>
     <string name="vibrate">Dirgrynu</string>
     <string name="no_days_selected">Dim diwrnodau wedi\'u dewis</string>
@@ -27,5 +26,5 @@
     <string name="show_seconds">Dangos eiliadau</string>
     <string name="increase_volume_gradually">Cynyddu uchder sain yn raddol</string>
     <string name="faq_1_title">Sut gallaf newid trefn lapiau yn y tab stopwats?</string>
-    <string name="faq_1_text">Clifia ar unrhyw un o\'r colofnau. Mi fydd hynny\'n ail-drefnu\'r lapiau yn ôl y golofn honno. Gyda chliciau ychwanegol, bydd y drefn yn toglo rhwng esgynnol a disgynnol.</string>
+    <string name="faq_1_text">Clifia ar unrhyw un o\'r colofnau. Mi fydd hynny\'n ail-drefnu\'r lapiau yn Ã´l y golofn honno. Gyda chliciau ychwanegol, bydd y drefn yn toglo rhwng esgynnol a disgynnol.</string>
 </resources>

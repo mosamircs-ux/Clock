@@ -17,7 +17,8 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:overScrollMode="ifContentScrolls"
-            android:paddingBottom="@dimen/fab_list_bottom_padding"
+            android:paddingTop="8dp"
+            android:paddingBottom="84dp"
             android:scrollbars="none"
             app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager"
             tools:listitem="@layout/item_alarm" />
